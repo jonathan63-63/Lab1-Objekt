@@ -8,22 +8,24 @@ public class TransportTruck extends TransportVehicles{
     private final int capacity;
     private final static int LOAD_RANGE = 10;
 
+
     public TransportTruck() {
         super(2, Color.gray, 100, "Truck");
         capacity = 10;
+
     }
 
     @Override
     public void liftRamp() {
-        ramp = false;
+        ramp.liftRamp();
     }
 
     /**Lowers the ramp if standing still
      *@return   true    if successful, false otherwise.*/
     @Override
     public boolean lowerRamp() {
-        if (currentSpeed == 0) ramp = true;
-        return ramp;
+        if (currentSpeed == 0) ramp.lowerRamp();
+        return ramp.isLoadable();
     }
 
     /**Load a PrivateCars onto the TransportTruck.

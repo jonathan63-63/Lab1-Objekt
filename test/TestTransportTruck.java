@@ -9,7 +9,7 @@ import java.awt.geom.Point2D;
 
 import static org.junit.Assert.*;
 
-public class TestTransportTruck {
+    public class TestTransportTruck {
 
         TransportTruck v;
         Volvo240 v2 = new Volvo240();
@@ -222,13 +222,13 @@ public class TestTransportTruck {
         @Test
         public void checkLift() {
             v.liftRamp();
-            assertFalse(v.getBoolRamp());
+            assertFalse(v.isLoadable());
         }
 
         @Test
         public void checkLiftLower() {
             v.lowerRamp();
-            assertTrue(v.getBoolRamp());
+            assertTrue(v.isLoadable());
         }
 
         @Test
@@ -236,7 +236,7 @@ public class TestTransportTruck {
             v.lowerRamp();
             v.startEngine();
             assertEquals(0, v.getCurrentSpeed(), 0.01);
-            assertTrue(v.getBoolRamp());
+            assertTrue(v.isLoadable());
         }
 
         @Test
@@ -244,7 +244,7 @@ public class TestTransportTruck {
             v.lowerRamp();
             v.gas(1);
             assertEquals(0, v.getCurrentSpeed(), 0.01);
-            assertTrue(v.getBoolRamp());
+            assertTrue(v.isLoadable());
         }
 
         @Test
@@ -262,7 +262,7 @@ public class TestTransportTruck {
         }
 
         @Test
-        public void testLoadedCarPos(){
+        public void testLoadedCarPos() {
             v.lowerRamp();
             v.load(v2);
             v.liftRamp();
@@ -270,15 +270,8 @@ public class TestTransportTruck {
             v.move();
             assertEquals(v.getPosition(), v2.getPosition());
         }
+    }
 
-
-
-
-
-
-
-
-}
 
 
 

@@ -10,6 +10,7 @@ public abstract class Car implements Movable {
     private Direction facing;
     protected double currentSpeed;
     private int nrDoors;
+
     public Color color;
     public String modelName;
     protected double enginePower;
